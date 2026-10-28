@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface IRoutineType {
   id: string;
   title: string;
@@ -11,7 +13,9 @@ export default function RoutineList({routine}: IRoutineListProps) {
     <nav>
       <ul>
         {routine.map((r) => (
-          <li key={r.id}>{r.title}</li>
+          <li key={r.id}>
+            <Link href={`/${r.id}`}>{r.title}</Link>
+          </li>
         ))}
       </ul>
     </nav>
