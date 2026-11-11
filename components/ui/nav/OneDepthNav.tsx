@@ -16,7 +16,7 @@ interface IOneDepthStateTypes {
   food: boolean;
 }
 
-export default function OneDepthNav({}: IOneDepthNavProps) {
+export default function OneDepthNav({routines}: IOneDepthNavProps) {
   const [
     {all, normal, daily, workout, business, travel, food},
     setOneDepthState,
@@ -30,7 +30,7 @@ export default function OneDepthNav({}: IOneDepthNavProps) {
     food: false,
   });
 
-  const onFilterCliced = (key: keyof IOneDepthStateTypes) => {
+  const onFilterClicked = (key: keyof IOneDepthStateTypes) => {
     setOneDepthState((prev) => {
       return {...prev, [key]: !prev[key]};
     });
@@ -38,13 +38,13 @@ export default function OneDepthNav({}: IOneDepthNavProps) {
 
   return (
     <nav>
-      <ul>
+      <ul className="flex flex-col gap-2 *:flex *:items-center *:gap-4">
         <li>
           <Label idFor="ALL" value="ALL" />
           <CheckboxInput
             id="ALL"
             checked={all}
-            setChange={() => onFilterCliced("all")}
+            setChange={() => onFilterClicked("all")}
           />
         </li>
         <li>
@@ -52,7 +52,7 @@ export default function OneDepthNav({}: IOneDepthNavProps) {
           <CheckboxInput
             id="NORMAL"
             checked={normal}
-            setChange={() => onFilterCliced("normal")}
+            setChange={() => onFilterClicked("normal")}
           />
         </li>
         <li>
@@ -60,7 +60,7 @@ export default function OneDepthNav({}: IOneDepthNavProps) {
           <CheckboxInput
             id="DAILY"
             checked={daily}
-            setChange={() => onFilterCliced("daily")}
+            setChange={() => onFilterClicked("daily")}
           />
         </li>
         <li>
@@ -68,7 +68,7 @@ export default function OneDepthNav({}: IOneDepthNavProps) {
           <CheckboxInput
             id="WORKOUT"
             checked={workout}
-            setChange={() => onFilterCliced("workout")}
+            setChange={() => onFilterClicked("workout")}
           />
         </li>
 
@@ -77,7 +77,7 @@ export default function OneDepthNav({}: IOneDepthNavProps) {
           <CheckboxInput
             id="BUSINESS"
             checked={business}
-            setChange={() => onFilterCliced("business")}
+            setChange={() => onFilterClicked("business")}
           />
         </li>
         <li>
@@ -85,7 +85,7 @@ export default function OneDepthNav({}: IOneDepthNavProps) {
           <CheckboxInput
             id="TRAVEL"
             checked={travel}
-            setChange={() => onFilterCliced("travel")}
+            setChange={() => onFilterClicked("travel")}
           />
         </li>
         <li>
@@ -93,7 +93,7 @@ export default function OneDepthNav({}: IOneDepthNavProps) {
           <CheckboxInput
             id="FOOD"
             checked={food}
-            setChange={() => onFilterCliced("food")}
+            setChange={() => onFilterClicked("food")}
           />
         </li>
       </ul>

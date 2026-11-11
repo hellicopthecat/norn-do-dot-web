@@ -13,5 +13,5 @@
 
 body {
   color: #cdcfda;
-  background: linear-gradient(135deg, #0a4f4b, #19376f);
+  background: linear-gradient(135deg, #0a4f4b, #19376f) no-repeat;
 }
